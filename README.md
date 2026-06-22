@@ -1,3 +1,21 @@
+> ## 🔧 Fork patch (imkun85)
+>
+> This is a fork of [flaskfarm/metadata](https://github.com/flaskfarm/metadata) with a bug fix.
+>
+> **Version:** `1.2.6-imkun85` (based on upstream `1.2.6`)
+>
+> **Changed file:** `mod_ktv.py`
+>
+> **Fix:** tving `info` mode crashed with `TypeError: 'NoneType' object is not subscriptable`
+> when `SupportTving.get_frequency_programid()` returned `None` (programs with no episode/
+> frequency data). This killed the whole ktv search, so Plex (`sjva_agent_ktv`) showed
+> **"No matches"** even when the tving search itself found the program.
+> Added a `None` / missing-`result` guard before iterating `episode_data['result']`.
+>
+> 누구나 가져다 쓰세요. (Anyone is free to use this fork.)
+
+---
+
 ### 메타데이터 플러그인
 
 Plex, KODI, Jellyfin 등과 연동하여 메타데이터를 제공하는 플러그인이다.
