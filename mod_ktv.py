@@ -91,6 +91,8 @@ class ModuleKtv(PluginModuleBase):
                     page = 1
                     while True:
                         episode_data = SupportTving.get_frequency_programid(keyword, page=page)
+                        if episode_data is None or 'result' not in episode_data:
+                            break
                         for epi in episode_data['result']:
                             ret['json']['episodes'].append(epi['episode'])
                         page += 1
